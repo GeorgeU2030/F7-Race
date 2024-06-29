@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Login } from '../../interfaces/Login';
+import { ToastAlertService } from '../../services/toast.service';
 
 
 @Component({
@@ -15,6 +16,8 @@ import { Login } from '../../interfaces/Login';
 export class LoginComponent {
 
   private authService = inject(AuthService);
+  private toastAlert = inject(ToastAlertService);
+
   private router = inject(Router);
 
   public formBuild = inject(FormBuilder);
@@ -36,12 +39,17 @@ export class LoginComponent {
       next: (data) => {
         if(data.token){
           localStorage.setItem('token', data.token);
+          this.toastAlert.showSuccess('Success', 'Login Success');
           this.router.navigate(['home']);
-        }else {
-          alert('Error al iniciar sesión');
         }
       },
-      error: (err) => console.log(err)
+      error: (err) => {
+        if(err.status == 401){
+          this.toastAlert.showError('Error', 'Invalid Credentials');
+        }else {
+          this.toastAlert.showError('Error', 'The User do not exist');
+        }
+      }
     })
     
   }
