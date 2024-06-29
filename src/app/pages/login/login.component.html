@@ -1,1 +1,43 @@
-<p>login works!</p>
+<div class="min-h-screen flex flex-col">
+    <nav class="h-24 bg-black">
+        <div class="flex justify-between items-center h-full px-12">
+            <div>
+                <a href="#" class="text-white text-2xl font-bold">
+                    <img src="f7logo.png" alt="logo" class="h-20 w-20" />
+                </a>
+            </div>
+            <div class="flex">
+                <h1 class="text-primary text-4xl font-bold">F7 RACE</h1>
+            </div>
+        </div>
+    </nav>
+    <div class="flex flex-grow bg-slate-100 justify-center items-center">
+        <form [formGroup]="formLogin" class="flex flex-col w-5/6 md:w-1/4">
+            <div class="mb-6">
+                <h1 class="text-4xl text-center font-bold gradient-text py-1">Sign In</h1>
+            </div>
+            <div class="flex flex-col">
+                <label for="email" >Email</label>
+                <input type="email" formControlName="email" id="email" class="inputstyle h-12 text-end"
+                placeholder="Enter your email"
+                required
+                />
+            </div>
+            <div class="flex flex-col mt-3">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" id="password" class="inputstyle h-12 text-end"
+                placeholder="Enter your password"
+                required
+                />
+            </div>
+            <div class="flex justify-center">
+                <button class="mt-6 btn px-12 py-2 font-bold" (click)="login()">LOGIN</button>
+            </div>
+        </form>
+    </div>   
+    <footer>
+        <div class="h-12 flex justify-center items-center">
+            <p class="text-center text-sm text-primary">© 2024 All rights reserved</p>
+        </div>
+    </footer>
+</div>
