@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { cars } from '../../logic/cars';
 
 @Component({
   selector: 'app-landing',
@@ -9,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class LandingComponent {
 
+  public cars = cars;
+
+  constructor() {}
 }

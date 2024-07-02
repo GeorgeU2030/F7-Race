@@ -1,1 +1,38 @@
-<p>landing works!</p>
+<div class="min-h-screen bg-white">
+    <nav class="h-24 bg-primary">
+        <div class="flex justify-between items-center h-full md:px-12">
+            <div class="flex justify-center items-center">
+                <a href="#" class="text-white text-2xl font-bold">
+                    <img src="f7white.png" alt="logo" class="h-20 w-20" />
+                </a>
+                <h1 class="font-bold text-white">RACE</h1>
+            </div>
+            <div class="flex">
+                <button class="bg-white text-red-600 btn px-4 py-2 font-semibold mr-2">
+                    Sign In
+                </button>
+                <button class="bg-white text-red-600 btn px-4 py-2 font-semibold mr-2 md:mr-0">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex flex-col items-center">
+        <div class="flex justify-center mt-6">
+            <h1 class="font-t">Simulate Races With 20 Brands/Teams</h1>
+        </div>
+        <div class="flex justify-center w-11/12 mt-4">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 w-full">
+
+                @for(car of cars; track $index){
+                    <div class="bg-primary flex flex-col items-center rounded-lg">
+                        <img [src]="car.image" [alt]="car.name" class="w-24 h-24 rounded-lg mt-2 bg-white"/>
+                        <h1 class="text-white font-t mb-1">{{ car.name }}</h1>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

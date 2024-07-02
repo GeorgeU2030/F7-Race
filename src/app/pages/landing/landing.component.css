@@ -1,0 +1,16 @@
+.btn {
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid #940000;
+    border-radius: 10px;
+}
+
+.font-t {
+    font-weight: 600;
+}
+
