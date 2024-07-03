@@ -24,4 +24,8 @@ export class AuthService {
     return this.http.post<Token>(`${this.apiUrl}/login`, userLogin);
   }
 
+  validateToken(token:string):Observable<any>{
+    return this.http.get<Token>(`${this.apiUrl}/validateToken?token=${token}`);
+  }
+
 }
