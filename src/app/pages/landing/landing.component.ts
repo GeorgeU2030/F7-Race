@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { cars } from '../../logic/cars';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -12,5 +13,15 @@ export class LandingComponent {
 
   public cars = cars;
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
+
+  goToLogin(){
+    this.router.navigate(['/login']);
+  }
+
+  goToRegister(){
+    this.router.navigate(['/signup']);
+  }
 }
