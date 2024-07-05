@@ -17,5 +17,9 @@ export class BrandService {
   getBrands():Observable<Brand[]>{
     return this.http.get<Brand[]>(this.apiUrl);
   }
+
+  generateBrands(userId:number){
+    return this.http.post(`${this.apiUrl}?UserId=${userId}`, {});
+  }
   
 }

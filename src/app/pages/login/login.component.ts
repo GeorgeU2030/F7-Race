@@ -39,6 +39,7 @@ export class LoginComponent {
       next: (data) => {
         if(data.token){
           localStorage.setItem('token', data.token);
+          localStorage.setItem('userId', data.userId);
           this.toastAlert.showSuccess('Success', 'Login Success');
           this.router.navigate(['home']);
         }

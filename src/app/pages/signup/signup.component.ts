@@ -4,6 +4,8 @@ import { ToastAlertService } from '../../services/toast.service';
 import { Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { User } from '../../interfaces/User';
+import { BrandService } from '../../services/brand.service';
+import { RaceService } from '../../services/race.service';
 
 @Component({
   selector: 'app-signup',
@@ -15,6 +17,8 @@ import { User } from '../../interfaces/User';
 export class SignupComponent {
 
   private authService = inject(AuthService);
+  private brandService = inject(BrandService);
+  private raceService = inject(RaceService);
   private toastAlert = inject(ToastAlertService);
 
   constructor(
@@ -41,9 +45,12 @@ export class SignupComponent {
     }
 
     this.authService.signup(user).subscribe({
-      next: () => {
+      next: (data) => {
           this.toastAlert.showSuccess('Success', 'User Created');
+          this.brandService.generateBrands(data.userId).subscribe();
+          this.raceService.generateRaces(data.userId).subscribe();
           this.router.navigate(['login']);
+          
       },
       error: (err) => {
         this.toastAlert.showError('Error', 'User already exist');

@@ -2,24 +2,24 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-teams',
   standalone: true,
   imports: [],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './teams.component.html',
+  styleUrl: './teams.component.css'
 })
-export class HomeComponent {
+export class TeamsComponent {
 
-  constructor(
+  constructor (
     private router: Router
-  ) { }
-
-  goToTeams(){
-    this.router.navigate(['/teams']);
-  }
+  ) {}
 
   goToRaces(){
     this.router.navigate(['/races']);
+  }
+
+  goToHome(){
+    this.router.navigate(['/home']);
   }
   
 }
