@@ -8,4 +8,24 @@
         >Seasons</a>
         <a class="ml-3 bg-red-500 rounded-lg border-2 border-white px-3 py-2">Teams</a>
     </nav>
+
+    @if(brands.length == 0){
+        <div class="flex items-center justify-center h-80">
+            <h1 class="font-bold text-2xl">Loading..</h1>
+        </div>
+    }@else {
+    <div class="flex flex-col items-center">
+        <div class="flex justify-center w-11/12 mt-4 mb-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 w-full">
+
+                @for(brand of brands; track $index){
+                    <div class="flex flex-col justify-center items-center bg-primary hover:bg-red-600 border-2 border-black rounded-lg mt-3 cursor-pointer">
+                        <img [src]="brand.logo" class="bg-white rounded-lg w-28 h-28 mt-2 border border-slate-600"/>
+                        <p class="text-center text-slate-100 mt-2 h-8 mx-1 font-semibold">{{brand.name}}</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    }
 </div>

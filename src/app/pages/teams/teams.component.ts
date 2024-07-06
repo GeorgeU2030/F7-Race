@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BrandService } from '../../services/brand.service';
+import { Brand } from '../../interfaces/Brand';
 
 @Component({
   selector: 'app-teams',
@@ -8,10 +10,13 @@ import { Router } from '@angular/router';
   templateUrl: './teams.component.html',
   styleUrl: './teams.component.css'
 })
-export class TeamsComponent {
+export class TeamsComponent implements OnInit{
+
+  brands : Brand[] = [];
 
   constructor (
-    private router: Router
+    private router: Router,
+    private brandService: BrandService
   ) {}
 
   goToRaces(){
@@ -20,6 +25,19 @@ export class TeamsComponent {
 
   goToHome(){
     this.router.navigate(['/home']);
+  }
+
+  ngOnInit(): void {
+    const userId = parseInt(localStorage.getItem('userId')?? '0');
+    this.brandService.getBrands(userId).subscribe({
+      next: (data) => {
+        this.brands = data;
+        console.log(this.brands);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
   
 }
