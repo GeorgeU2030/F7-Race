@@ -8,4 +8,23 @@
         (click)="goToTeams()"
         >Teams</a>
     </nav>
+
+    <div class="flex flex-col items-center">
+        <div class="flex justify-center w-11/12 mt-4 mb-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 w-full">
+
+                @for(race of races; track $index){
+                    <div class="flex flex-col border-2 border-primary rounded-lg mt-3">
+                        <img [src]="race.imageCircuit" class="bg-white rounded-lg"/>
+                        <p class="text-xs text-center mt-2 h-8 mx-1">{{race.name}}</p>
+                        <div class="flex justify-between items-center">
+                            <img [src]="race.flagRace" class="w-8 h-4 ml-3"/>
+                            <p class="font-bold mr-1">{{race.laps}} Laps</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>  
+
 </div>

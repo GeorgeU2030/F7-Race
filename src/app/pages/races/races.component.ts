@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RaceService } from '../../services/race.service';
+import { Race } from '../../interfaces/Race';
 
 @Component({
   selector: 'app-races',
@@ -10,6 +11,8 @@ import { RaceService } from '../../services/race.service';
   styleUrl: './races.component.css'
 })
 export class RacesComponent implements OnInit {
+
+  races: Race[] = [];
 
   constructor (
     private router: Router,
@@ -28,7 +31,7 @@ export class RacesComponent implements OnInit {
     const userId = parseInt(localStorage.getItem('userId')?? '0');
     this.raceService.getRaces(userId).subscribe({
       next: (data) => {
-        console.log(data);
+        this.races = data;
       },
       error: (err) => {
         console.log(err);
