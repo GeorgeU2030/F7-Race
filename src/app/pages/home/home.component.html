@@ -8,4 +8,85 @@
         (click)="goToTeams()"
         >Teams</a>
     </nav>
+    <div class="flex flex-col">
+        <div class="flex justify-center mt-4">
+            <button class="flex bg-primary items-center px-3 py-1 rounded-lg border-2 border-black hover:bg-red-500"
+            (click)="addSeason()"
+            >
+                <img src="/Icons8Plus.png" alt="+" class="w-8 h-8">
+                <p class="font-semibold text-white ml-1">Season</p>
+            </button>
+        </div>
+
+        @if(seasons.length > 0){
+            <div class="flex flex-col justify-center items-center">
+                <div class="w-5/6 overflow-auto overflow-y-auto max-h-[100vh]">
+                    <table class="mt-5 w-full">
+                        <thead>
+                            <tr>
+                                <th class="min-w-24 bg-primary text-white text-lg h-12 rounded-tl-lg">Edition</th>
+                                <th class="min-w-20 bg-primary text-white text-lg h-12"></th>
+                                <th class="min-w-60 bg-primary text-white text-lg h-12">Winner</th>
+                                <th class="min-w-20 bg-primary text-white text-lg h-12"></th>
+                                <th class="min-w-60 bg-primary text-white text-lg h-12">Second</th>
+                                <th class="min-w-20 bg-primary text-white text-lg h-12"></th>
+                                <th class="min-w-60 bg-primary text-white text-lg h-12">Third</th>
+                                <th class="min-w-12 bg-primary text-white text-lg h-12 rounded-tr-lg"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(season of seasons; track season.seasonId){
+
+                                <tr class="h-16 bg-slate-200">
+                                    <td class="text-center font-bold">{{season.edition}}</td>
+                                    @if(season.winner){
+                                        <td class="flex justify-center items-center mt-1">
+                                            <img src="{{season.winner.logo}}" alt="{{season.winner.name}}" class="w-12 h-12 rounded-full">
+                                        </td>
+                                        <td class="text-center font-bold bg-yellow-200">{{season.winner.name}}</td>
+                                    }@else {
+                                        <td class="flex justify-center items-center mt-1">
+                                            <img src="/GameIconsF1Car.png" alt="?" class="w-12 h-12 rounded-full">
+                                        </td>
+                                        <td class="text-center font-bold bg-yellow-200">No Winner Yet</td>
+                                    }
+                                    @if(season.second){
+                                        <td class="flex justify-center items-center mt-1">
+                                            <img src="{{season.second.logo}}" alt="{{season.second.name}}" class="w-12 h-12 rounded-full">
+                                        </td>
+                                        <td class="text-center bg-gray-300">{{season.second.name}}</td>
+                                    }@else {
+                                        <td class="flex justify-center items-center mt-1">
+                                            <img src="/GameIconsF1Car.png" alt="?" class="w-12 h-12 rounded-full">
+                                        </td>
+                                        <td class="text-center bg-gray-300">No Second Yet</td>
+                                    }
+                                    @if(season.third){
+                                        <td class="flex justify-center items-center mt-1">
+                                            <img src="{{season.third.logo}}" alt="{{season.third.name}}" class="w-12 h-12 rounded-full">
+                                        </td>
+                                        <td class="text-center">{{season.third.name}}</td>
+                                    }@else {
+                                        <td class="flex justify-center items-center mt-1">
+                                            <img src="/GameIconsF1Car.png" alt="?" class="w-12 h-12 rounded-full">
+                                        </td>
+                                        <td class="text-center">No Third Yet</td>
+                                    }
+                                    <td class="cursor-pointer">
+                                        <img src="/WhhWheel.png" alt="" class="w-8 h-8 ml-2">
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+        @else {
+            <div class="flex justify-center items-center h-96">
+                <p class="text-xl">No seasons available, add a new season</p>
+            </div>
+        }
+    </div>
+
 </div>

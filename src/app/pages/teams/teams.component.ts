@@ -32,7 +32,6 @@ export class TeamsComponent implements OnInit{
     this.brandService.getBrands(userId).subscribe({
       next: (data) => {
         this.brands = data;
-        console.log(this.brands);
       },
       error: (err) => {
         console.log(err);
