@@ -3,6 +3,8 @@ import { environment } from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Season } from '../interfaces/Season';
+import { SeasonBrand } from '../interfaces/SeasonBrand';
+import { SeasonRace } from '../interfaces/SeasonRace';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,14 @@ export class SeasonService {
 
   addSeason(season:Season):Observable<Season>{
     return this.http.post<Season>(this.apiUrl, season);
+  }
+
+  addTeamtoSeason(seasonId:number, brand:SeasonBrand):Observable<SeasonBrand>{
+    return this.http.put<SeasonBrand>(this.apiUrl+'/'+seasonId, brand);
+  }
+
+  addRaceToSeason(seasonId:number, race:SeasonRace):Observable<SeasonRace>{
+    return this.http.put<SeasonRace>(this.apiUrl+'/'+seasonId+'/races', race)
   }
 
 }

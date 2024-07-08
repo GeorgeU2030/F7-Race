@@ -1,6 +1,6 @@
 export interface Race {
     raceId: number,
-    name: number,
+    name: string,
     flagRace: string,
     laps: number,
     imageCircuit: string,
