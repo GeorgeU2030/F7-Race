@@ -23,6 +23,9 @@ export class HomeComponent implements OnInit {
     private raceService: RaceService
   ) { }
 
+
+  // routes
+
   goToTeams(){
     this.router.navigate(['/teams']);
   }
@@ -30,6 +33,12 @@ export class HomeComponent implements OnInit {
   goToRaces(){
     this.router.navigate(['/races']);
   }
+
+  goToSeason(seasonId:number){
+    this.router.navigate(['/season', seasonId]);
+  }
+
+  // new season
 
   addSeason(){
     const userId = parseInt(localStorage.getItem('userId') ?? '0');
@@ -49,8 +58,6 @@ export class HomeComponent implements OnInit {
       edition: edition,
       userId: userId,
     }
-
-    
 
     this.seasonService.addSeason(season).subscribe({
       next: (response:Season) => {
