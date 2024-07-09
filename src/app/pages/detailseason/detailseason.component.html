@@ -1,1 +1,70 @@
-<p>detailseason works!</p>
+<div class="min-h-screen bg-slate-100">
+    @if(season){
+    <nav class="h-20 bg-primary flex justify-center items-center">
+        <h1 class="font-bold text-xl text-white">Edition {{season.edition}}</h1>
+    </nav>
+
+    <div class="flex justify-center items-center mt-3">
+        <div class="h-24 w-24 bgbronze rounded-lg borderb flex justify-center items-center">
+            @if(season.third){
+                <img src="{{season.third.logo}}" alt="third" class="h-24 w-24 rounded-lg">
+            }@else {
+                <img src="/bronze.png" alt="third" class="h-12 w-12 rounded-lg">
+            }
+        </div>
+        <div class="h-32 w-32 bg-yellow-300 ml-3 rounded-lg borderb flex justify-center items-center">
+            @if(season.winner){
+                <img src="{{season.winner.logo}}" alt="third" class="h-24 w-24 rounded-lg">
+            }@else {
+                <img src="/gold.png" alt="third" class="h-16 w-16 rounded-lg">
+            }
+        </div>
+        <div class="w-28 h-28 bg-gray-400 ml-3 rounded-lg borderb flex justify-center items-center">
+            @if(season.second){
+                <img src="{{season.second.logo}}" alt="third" class="h-24 w-24 rounded-lg">
+            }@else {
+                <img src="/silver.png" alt="third" class="h-14 w-14 rounded-lg">
+            }
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row mb-6 mt-10">
+        <section class="w-full md:w-1/2 flex flex-col items-center">
+
+            <h1 class="font-bold text-primary text-lg">Constructor Standings</h1>
+
+            @for(brand of brands; track $index){
+                <div class="w-11/12 md:4/5 lg:w-2/3 bg-white rounded-lg shadow-md my-3 p-3 flex justify-between items-center borderp">
+                    <div class="flex items-center">
+                        <h1 class="font-semibold w-7 ">{{$index + 1}}</h1>
+                        <img src="{{brand.logo}}" alt="logo" class="h-12 w-12 rounded-lg ml-4">
+                        <h1 class="font-bold md:text-lg ml-3">{{brand.name}}</h1>
+                    </div>
+                    <div class="flex items-center">
+                        <h1 class="font-bold text-lg mr-3">{{brand.points}}</h1>
+                        <img src="/GridiconsStats.png" alt="points" class="h-6 w-6">
+                    </div>
+                </div>
+            }
+        </section>
+        <section class="w-full md:w-1/2 flex flex-col items-center">
+
+            <h1 class="font-semibold text-red-600 text-lg">Races</h1>
+
+            @for(race of races; track $index){
+                <div class="w-11/12 md:4/5 lg:w-2/3 rounded-lg shadow-md my-3 p-3 flex justify-between items-center borderp cursor-pointer hover:bg-red-100" [ngClass]="{'bg-white': race.firstPosition === 0, 'bg-red-600': race.firstPosition !== 0}">
+                    <div class="flex items-center">
+                        <img src="{{race.flagRace}}" class="w-12 h-8">
+                        <h1 class="font-bold md:text-lg ml-3">{{race.name}}</h1>
+                    </div>
+                    <div class="flex items-center">
+                        <h1 class="font-bold text-lg mr-3">{{race.laps}}</h1>
+                        <img src="/TablerRoadSign.png" alt="points" class="h-6 w-6">
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+
+    }
+</div>

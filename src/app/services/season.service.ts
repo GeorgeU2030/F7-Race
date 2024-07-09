@@ -20,6 +20,10 @@ export class SeasonService {
     return this.http.get<Season[]>(this.apiUrl+'/'+userId);
   }
 
+  getDetails(id:number):Observable<Season>{
+    return this.http.get<Season>(this.apiUrl+'/'+id+'/detail');
+  }
+
   addSeason(season:Season):Observable<Season>{
     return this.http.post<Season>(this.apiUrl, season);
   }
