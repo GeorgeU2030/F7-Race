@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SeasonService } from '../../services/season.service';
 import { Season } from '../../interfaces/Season';
 import { SeasonBrand } from '../../interfaces/SeasonBrand';
@@ -22,10 +22,14 @@ export class DetailseasonComponent implements OnInit{
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     // service
     private seasonService: SeasonService,
   ) { }
 
+  goToRace(raceId: number){
+    this.router.navigate(['/race', raceId])
+  }
 
   loadSeason(){
     this.seasonService.getDetails(this.seasonId).subscribe({

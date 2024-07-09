@@ -1,0 +1,27 @@
+<div class="min-h-screen bg-slate-100">
+    @if(race){
+    <nav class="bg-primary h-24 flex justify-center items-center">
+        <div class="flex justify-center items-center bg-slate-100 py-1 px-6 rounded-lg border-2 border-black">
+            <img src="{{race.flagRace}}" alt="" class="w-24 h-16">
+            <h1 class="ml-3 font-bold text-primary text-xl">{{race.name}}</h1>
+        </div>
+    </nav>
+
+    <div class="flex justify-center items-center mt-4">
+        <img src="{{race.imageCircuit}}" alt="" class="w-80 ">
+    </div>
+
+    @if(race.firstPosition){
+
+    }@else {
+        <div class="h-96 flex justify-center items-center">
+            <button class="bg-primary hover:bg-red-600 text-white py-2 px-6 font-semibold rounded-lg border-2 border-black"
+            (click)="startRace()"
+            >
+                Start Grand Prix
+            </button>
+        </div>
+    }
+
+    }
+</div>

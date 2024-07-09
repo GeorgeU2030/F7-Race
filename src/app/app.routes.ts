@@ -7,6 +7,7 @@ import { authGuard } from './custom/auth.guard';
 import { TeamsComponent } from './pages/teams/teams.component';
 import { RacesComponent } from './pages/races/races.component';
 import { DetailseasonComponent } from './pages/detailseason/detailseason.component';
+import { SeasonraceComponent } from './pages/seasonrace/seasonrace.component';
 
 export const routes: Routes = [
     {path: '', component: LandingComponent},
@@ -16,5 +17,6 @@ export const routes: Routes = [
     {path: 'teams', component: TeamsComponent, canActivate: [authGuard]},
     {path: 'races', component: RacesComponent, canActivate: [authGuard]},
     {path: 'season/:id', component: DetailseasonComponent, canActivate: [authGuard]},
+    {path: 'race/:id' , component: SeasonraceComponent ,canActivate: [authGuard]},
     {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
