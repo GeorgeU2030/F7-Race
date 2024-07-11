@@ -21,5 +21,21 @@ export class BrandService {
   getBrands(userId:number):Observable<Brand[]>{
     return this.http.get<Brand[]>(this.apiUrl+'/'+userId);
   }
+
+  updateStats(userId:number, brandname:string, isWinner:boolean){
+    return this.http.put(`${this.apiUrl}/stats?UserId=${userId}&seasonBrandName=${brandname}&isWinner=${isWinner}`, {});
+  }
+
+  updatePoints(userId:number, brandname:string, points:number){
+    return this.http.put(`${this.apiUrl}/points?UserId=${userId}&seasonBrandName=${brandname}&points=${points}`, {});
+  }
+
+  champion(userId:number, brandname:string){
+    return this.http.put(`${this.apiUrl}/champion?UserId=${userId}&seasonBrandName=${brandname}`, {});
+  }
+
+  trophies(userId:number, brandname:string, racename:string){
+    return this.http.put(`${this.apiUrl}/trophies?UserId=${userId}&seasonBrandName=${brandname}&raceName=${racename}`, {});
+  }
   
 }

@@ -1,3 +1,5 @@
+import { Trophy } from "./Trophy"
+
 export interface Brand {
     brandId: number,
     name: string,
@@ -8,4 +10,5 @@ export interface Brand {
     totalpodiums: number,
     totalpoints: number,
     userId: number
+    trophiesCount? : Trophy[]
 }

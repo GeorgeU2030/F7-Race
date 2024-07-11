@@ -36,4 +36,8 @@ export class SeasonService {
     return this.http.put<SeasonRace>(this.apiUrl+'/'+seasonId+'/races', race)
   }
 
+  podium(seasonId:number,userId:number, winner:string, second:string, third:string){
+    return this.http.put(`${this.apiUrl}/${seasonId}/podium?Userid=${userId}&winner=${winner}&second=${second}&third=${third}`, {});
+  }
+
 }

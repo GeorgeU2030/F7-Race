@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SeasonRace } from '../interfaces/SeasonRace';
+import { SeasonRaceResponse } from '../interfaces/SeasonRaceResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class SeasonraceService {
 
   constructor(private http:HttpClient) { }
 
-  getRace(id:number):Observable<SeasonRace>{
-    return this.http.get<SeasonRace>(this.apiUrl+'/'+id);
+  getRace(id:number):Observable<SeasonRaceResponse>{
+    return this.http.get<SeasonRaceResponse>(this.apiUrl+'/'+id);
   }
 
   updateRace(race:SeasonRace):Observable<SeasonRace>{
