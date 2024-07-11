@@ -7,6 +7,7 @@ import { SeasonbrandService } from '../../services/seasonbrand.service';
 import { SeasonRaceResponse } from '../../interfaces/SeasonRaceResponse';
 import { shuffle } from '../../logic/shuffle';
 import { BrandService } from '../../services/brand.service';
+import { Podium } from '../../interfaces/Podium';
 
 @Component({
   selector: 'app-seasonrace',
@@ -19,6 +20,8 @@ export class SeasonraceComponent implements OnInit{
   
   brands!: SeasonBrand[];
   seasonId!: number;
+
+  podium!: Podium[];
 
   lastraceId!: number;
   race!: SeasonRaceResponse;
@@ -126,10 +129,32 @@ export class SeasonraceComponent implements OnInit{
     })
   }
 
+  loadPodium(){
+    if(this.race.firstPosition && this.race.secondPosition
+      && this.race.thirdPosition && this.race.fourthPosition && this.race.fifthPosition
+      && this.race.sixthPosition && this.race.seventhPosition && this.race.eighthPosition && 
+      this.race.ninthPosition && this.race.tenthPosition
+    ){
+      this.podium = [
+        { rank: 1, brand: this.race.firstPosition, points: 25 },
+        { rank: 2, brand: this.race.secondPosition, points: 18 },
+        { rank: 3, brand: this.race.thirdPosition, points: 15 },
+        { rank: 4, brand: this.race.fourthPosition, points: 12 },
+        { rank: 5, brand: this.race.fifthPosition, points: 10 },
+        { rank: 6, brand: this.race.sixthPosition, points: 8 },
+        { rank: 7, brand: this.race.seventhPosition, points: 6 },
+        { rank: 8, brand: this.race.eighthPosition, points: 4 },
+        { rank: 9, brand: this.race.ninthPosition, points: 2 },
+        { rank: 10, brand: this.race.tenthPosition, points: 1 },
+      ]
+    }
+  }
+
   loadRace(){
     this.seasonRaceService.getRace(this.raceId).subscribe({
       next: (data) => {
         this.race = data;
+        this.loadPodium();
         this.seasonId = data.seasonId;
       },
       error: (error) => {

@@ -15,7 +15,7 @@ export const cars = [
     { name: 'Chevrolet', image: 'https://llacar.com/wp-content/uploads/2020/11/LOGO-chevrolet.png'},
     { name: 'Lamborghini', image: 'https://i.pinimg.com/originals/e6/29/9c/e6299c69c011eb560e37e973076d6e47.jpg' },
     { name: 'Bugatti', image: 'https://static.wixstatic.com/media/f2bf43_fa09bd7ac87345149f442b82c3ca9da1~mv2.png/v1/fill/w_540,h_540,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Bugatti%20logo%20.png' },
-    { name: 'Volkswagen' , image: 'https://e7.pngegg.com/pngimages/529/754/png-clipart-volkswagen-vw-logo-transport-cars.png'},
+    { name: 'Volkswagen' , image: 'https://www.logo-voiture.com/wp-content/uploads/2023/08/Volkswagen_1978-1989_Logo.svg_-1024x1024.png'},
     { name: 'Lotus' , image: 'https://i.pinimg.com/736x/6c/36/6b/6c366b4483e485dbdbe434ef369f01d4.jpg' },
     { name: 'Nissan' , image: 'https://static.vecteezy.com/system/resources/previews/020/336/031/non_2x/nissan-logo-nissan-icon-free-free-vector.jpg'},
     { name: 'Peugeot', image: 'https://static.vecteezy.com/system/resources/previews/020/500/602/non_2x/peugeot-brand-logo-symbol-with-name-black-design-french-car-automobile-illustration-free-vector.jpg'},

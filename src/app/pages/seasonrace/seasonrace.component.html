@@ -11,8 +11,26 @@
         <img src="{{race.imageCircuit}}" alt="" class="w-80 ">
     </div>
 
-    @if(race.firstPosition){
-
+    @if(podium.length > 0){
+        <div class="mt-4 flex justify-center">
+            <div class="flex flex-col items-center w-full mb-6">
+                <h1 class="text-primary font-bold text-2xl">Podium</h1>
+                @for(pod of podium ; track pod.rank){
+                <div class="w-11/12 md:4/5 lg:w-2/3 bg-white rounded-lg shadow-md my-3 p-3 flex justify-between items-center borderp">
+                    <div class="flex items-center ">
+                        <h1 class="font-semibold w-7 ">{{pod.rank}}</h1>
+                        <img src="{{pod.brand.logo}}" alt="logo" class="h-12 w-12 rounded-lg ml-4">
+                        <h1 class="font-bold md:text-lg ml-3 w-48 ">{{pod.brand.name}}</h1>
+                        <img src="{{pod.brand.flag}}" alt="logo" class="h-8 w-12 rounded-lg ml-4 borderbl">
+                    </div>
+                    <div class="flex items-center">
+                        <h1 class="font-bold text-lg mr-3">{{pod.points}}</h1>
+                        <img src="/GridiconsStats.png" alt="points" class="h-6 w-6">
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
     }@else {
         <div class="h-96 flex justify-center items-center">
             <button class="bg-primary hover:bg-red-600 text-white py-2 px-6 font-semibold rounded-lg border-2 border-black"
