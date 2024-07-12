@@ -49,6 +49,13 @@
     </h1>
 
     <div class="flex justify-center mt-3 mb-12">
+
+        @if(brand.trophiesCount && brand.trophiesCount.length === 0) {
+            <h1 class="text-center text-xl mt-3">
+                No Grand Prixes Won
+            </h1>
+        }
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         @for(trophy of brand.trophiesCount; track $index){
             <div class="flex items-center justify-center bg-slate-200 shadow-lg px-6 py-3 rounded-lg"
@@ -62,10 +69,6 @@
                     {{trophy.count}}
                 </h1>
             </div>
-        }@empty {
-            <h1 class="text-center text-xl mt-3">
-                No Grand Prixes Won
-            </h1>
         }
         </div>
     </div>

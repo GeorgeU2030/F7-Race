@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    @if(lastrace.firstPosition){
+    @if(lastrace.firstPosition && !season.winner){
         <div class="flex justify-center mt-8 mb-8">
             <button class="px-6 py-2 bg-primary text-white font-bold rounded-lg"
             (click)="finish()"
