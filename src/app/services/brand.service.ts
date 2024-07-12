@@ -22,6 +22,10 @@ export class BrandService {
     return this.http.get<Brand[]>(this.apiUrl+'/'+userId);
   }
 
+  getBrand(brandId:number):Observable<Brand>{
+    return this.http.get<Brand>(`${this.apiUrl}/${brandId}/detail`);
+  }
+
   updateStats(userId:number, brandname:string, isWinner:boolean){
     return this.http.put(`${this.apiUrl}/stats?UserId=${userId}&seasonBrandName=${brandname}&isWinner=${isWinner}`, {});
   }

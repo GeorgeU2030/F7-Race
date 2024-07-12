@@ -36,17 +36,6 @@ export class SeasonraceComponent implements OnInit{
   ) { }
 
 
-  verifyLastRace(){
-
-    if(this.lastraceId == this.raceId){
-      const userId = parseInt(localStorage.getItem('userId')?? '0');
-      this.brands = this.brands.sort((a, b) => b.points - a.points);
-      this.seasonService.podium(this.seasonId,userId, this.brands[0].name, this.brands[1].name, this.brands[2].name).subscribe();
-      this.brandService.champion(userId, this.brands[0].name).subscribe();
-    }
-
-  }
-
   updateStats(brand: SeasonBrand, isWinner: boolean){
 
     const userId = parseInt(localStorage.getItem('userId')?? '0');
@@ -101,7 +90,6 @@ export class SeasonraceComponent implements OnInit{
     this.seasonRaceService.updateRace(seasonRace).subscribe({
       next: () => {
         this.loadRace();
-        this.verifyLastRace();
         this.updateStats(this.brands[0], true);
         this.updateStats(this.brands[1], false);
         this.updateStats(this.brands[2], false);

@@ -43,7 +43,12 @@
                                         <td class="flex justify-center items-center mt-1">
                                             <img src="{{season.winner.logo}}" alt="{{season.winner.name}}" class="w-12 h-12 rounded-full">
                                         </td>
-                                        <td class="text-center font-bold bg-yellow-200">{{season.winner.name}}</td>
+                                        <td class="text-center font-bold bg-yellow-200">
+                                            <div class="flex justify-center items-center">
+                                                {{season.winner.name}}
+                                                <img src="{{season.winner.flag}}" alt="" class="w-6 ml-1 h-4">
+                                            </div>  
+                                        </td>
                                     }@else {
                                         <td class="flex justify-center items-center mt-1">
                                             <img src="/GameIconsF1Car.png" alt="?" class="w-12 h-12 rounded-full">
@@ -54,7 +59,12 @@
                                         <td class="flex justify-center items-center mt-1">
                                             <img src="{{season.second.logo}}" alt="{{season.second.name}}" class="w-12 h-12 rounded-full">
                                         </td>
-                                        <td class="text-center bg-gray-300">{{season.second.name}}</td>
+                                        <td class="text-center bg-gray-300">
+                                            <div class="flex justify-center items-center">
+                                                {{season.second.name}}
+                                                <img src="{{season.second.flag}}" alt="" class="w-6 ml-1 h-4">
+                                            </div>  
+                                        </td>
                                     }@else {
                                         <td class="flex justify-center items-center mt-1">
                                             <img src="/GameIconsF1Car.png" alt="?" class="w-12 h-12 rounded-full">
@@ -65,7 +75,12 @@
                                         <td class="flex justify-center items-center mt-1">
                                             <img src="{{season.third.logo}}" alt="{{season.third.name}}" class="w-12 h-12 rounded-full">
                                         </td>
-                                        <td class="text-center">{{season.third.name}}</td>
+                                        <td class="text-center">
+                                            <div class="flex justify-center items-center">
+                                                {{season.third.name}}
+                                                <img src="{{season.third.flag}}" alt="" class="w-6 ml-1 h-4">
+                                            </div>  
+                                        </td>
                                     }@else {
                                         <td class="flex justify-center items-center mt-1">
                                             <img src="/GameIconsF1Car.png" alt="?" class="w-12 h-12 rounded-full">

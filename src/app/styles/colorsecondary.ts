@@ -1,0 +1,22 @@
+export const colorsecondary : { [key:string]: string} = {
+    'Mercedes Benz' : '#43C864',
+    'Chevrolet' : '#0F00D5',
+    'Ford': '#003FD5',
+    'BMW': '#6E99FE',
+    'Porsche': 'rgba(213, 0, 0, 1)',
+    'McLaren': '#D53D00',
+    'Audi': 'rgba(1, 1, 1, 1)',
+    'Ferrari': 'rgba(255, 212, 0, 1)',
+    'Toyota': 'rgba(230, 2, 2, 1)',
+    'Renault': '#390079',
+    'Aston Martin': '#00A82A',
+    'Alfa Romeo': '#0C326A',
+    'Nissan': 'rgba(95, 0, 0, 1)',
+    'Lamborghini': '#BC7A00',
+    'Lotus': '#FFAF00',
+    'Peugeot': '#F900FF',
+    'Red Bull Racing': '#CF1F1F',
+    'Volkswagen': '#32A800',
+    'Bugatti': 'rgba(145, 0, 0, 1)',
+    'Koenigsegg': '#104F95'
+}

@@ -27,6 +27,10 @@ export class TeamsComponent implements OnInit{
     this.router.navigate(['/home']);
   }
 
+  goToTeam(id: number){
+    this.router.navigate(['/brand', id]);
+  }
+
   ngOnInit(): void {
     const userId = parseInt(localStorage.getItem('userId')?? '0');
     this.brandService.getBrands(userId).subscribe({

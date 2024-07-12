@@ -6,9 +6,10 @@ export interface Brand {
     logo: string,
     country: string,
     flag: string,
-    totalwins: number,
-    totalpodiums: number,
-    totalpoints: number,
+    totalWins: number,
+    totalPodiums: number,
+    totalPoints: number,
+    totalChampions: number,
     userId: number
     trophiesCount? : Trophy[]
 }

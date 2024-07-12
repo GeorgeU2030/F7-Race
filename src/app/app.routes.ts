@@ -8,6 +8,7 @@ import { TeamsComponent } from './pages/teams/teams.component';
 import { RacesComponent } from './pages/races/races.component';
 import { DetailseasonComponent } from './pages/detailseason/detailseason.component';
 import { SeasonraceComponent } from './pages/seasonrace/seasonrace.component';
+import { BrandComponent } from './pages/brand/brand.component';
 
 export const routes: Routes = [
     {path: '', component: LandingComponent},
@@ -18,5 +19,6 @@ export const routes: Routes = [
     {path: 'races', component: RacesComponent, canActivate: [authGuard]},
     {path: 'season/:id', component: DetailseasonComponent, canActivate: [authGuard]},
     {path: 'race/:id' , component: SeasonraceComponent ,canActivate: [authGuard]},
+    {path: 'brand/:id', component: BrandComponent, canActivate: [authGuard]},
     {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
